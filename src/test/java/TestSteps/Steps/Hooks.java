@@ -28,7 +28,7 @@ public class Hooks {
         chromeOptions.addArguments("--window-size=1920,1080");
         chromeOptions.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
         chromeOptions.addArguments("--no-sandbox"); // Bypass OS security model
-        //chromeOptions.addArguments("--headless=old");
+        chromeOptions.addArguments("--headless=old");
         driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
