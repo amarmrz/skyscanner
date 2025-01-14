@@ -13,14 +13,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-  
+        uses: actions/checkout@v3
+
       - name: Set up Java
         uses: actions/setup-java@v1
         with:
           java-version: 11
 
-      - name: Build
+      - name: Cache Maven Dependencies
         uses: actions/cache@v2
         with:
           path: ~/.m2
@@ -32,14 +32,14 @@ jobs:
 
       - name: Upload Cucumber Reports
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-            name: cucumber-reports
-            path: cucumber_results
+          name: cucumber-reports
+          path: cucumber_results
 
       - name: Upload Screenshots
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-              name: screenshots
-              path: failed_scenarios
+          name: screenshots
+          path: failed_scenarios
